@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4m(cdt)roxv8qef4+@44ewo0z1ku3+bpfy_#ryak41tg(siz$%'
+SECRET_KEY = config("SECRET_KEY", default="Your secret key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -142,5 +143,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "blogbot50@gmail.com"
-EMAIL_HOST_PASSWORD = "yqfjrlrchdvhbirw"
+
+'''
+The following configuration for the email that will reset your password in the blog
+So don't worry that's not kind of hacking
+Just fill in the requirements
+'''
+EMAIL_HOST_USER = config("EMAIL_HOST_USER", default="Put your email here")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_USER", default="Put your email password here")

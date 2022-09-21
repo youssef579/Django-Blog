@@ -155,10 +155,10 @@ button, a:not(header a, .post a) {
 
 .btn-outline-info {
     border-color: var(--secondary-color) !important;
-    color: var(--secondary-color);
+    color: var(--secondary-color) !important;
 }
 
-.btn-outline-info:hover {
+.btn-outline-info:is(:hover, :focus, :focus-visible) {
     color: #fff !important;
     background-color: var(--secondary-color) !important;
 }
