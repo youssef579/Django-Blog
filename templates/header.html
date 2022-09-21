@@ -1,0 +1,9 @@
+<header>
+    <div class="container">
+        <a href="{% url 'home' %}" class="logo">BLOG</a>
+        <nav>
+            <a href="{% url 'home' %}" class="{{ home_activate }}">Home</a>
+            <a href="{% url 'profile' %}" class="{{ profile_activate }}">Profile</a>
+        </nav>
+    </div>
+</header>

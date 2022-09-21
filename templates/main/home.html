@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="menu">
+                <i class="bi bi-three-dots"></i>
+                <div class="links">
+                    <a href="{% url 'update-post' post.id %}"><i class="bi bi-pen"></i> Edit</a>
+                    <a href="{% url 'delete-post' post.id %}"><i class="bi bi-trash"></i> Delete</a>
+                </div>
+            </div>
+            <div class="info">
+                <a href="{% url 'profile' %}"><div class="image rounded-circle" style="background: url('{{ user.image.url }}') no-repeat center; background-size: cover; min-width: 50px; aspect-ratio: 1 / 1;"></div></a>
+                <p>
+                    <span class="author">
+                        <a href="{% url 'profile' %}">{{ user.full_name }}</a>
+                    </span>
+                    <span class="datetime">{{ post.datetime|date:"Y/m/d h:i A" }}</span>
+                </p>
+            </div>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+        </div>
+    {% endfor %}
+    {% if user.is_authenticated %}
+        <a class="add-post btn btn-outline-info" href="{% url 'create-post' %}" title="Add a new post">
+            <i class="bi bi-plus-lg"></i>
+        </a>
+    {% endif %}
+{% endblock content %}

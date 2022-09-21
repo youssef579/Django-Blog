@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section profile-content">
+        <div class="media">
+            <div class="image rounded-circle" style="background: url('{{ user.image.url }}') no-repeat center; background-size: cover;"></div>
+            <div class="media-body">
+                <h2 class="account-heading">{{ user.full_name }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+            </div>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Profile Info
+                </legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+                <a type="button"
+                   href="{% url 'logout' %}"
+                   class="btn btn-outline-danger">Logout</a>
+                <a type="button"
+                   href="{% url 'delete' %}"
+                   class="btn btn-outline-danger">Delete account</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

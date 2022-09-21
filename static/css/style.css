@@ -1,0 +1,308 @@
+/* Variables */
+:root {
+    --main-color: #5f788a;
+    --secondary-color: #00bcd4;
+}
+
+/* Global rules */
+body {
+    background-color: #fafafa;
+    font-family: 'Cairo', sans-serif;
+    color: #333;
+}
+
+main {
+    padding: 20px 0;
+}
+
+ul {
+    margin-top: 5px;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.container {
+    padding: 0 15px;
+    margin: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.add-post {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 20px;
+    margin: 0 !important;
+    padding: 5px 10px !important;
+}
+
+.add-post:hover {
+    background-color: var(--main-color) !important;
+}
+
+/* Header */
+header {
+    padding: 10px;
+    background-color: var(--main-color);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .container .logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+    transition: opacity 0.3s;
+}
+
+header .container .logo:hover {
+    opacity: 0.8;
+}
+
+header .container nav {
+    display: flex;
+    gap: 20px;
+}
+
+header .container nav a {
+    font-size: 19px;
+    color: #cbd5db;
+    transition: color 0.3s;
+}
+
+header .container nav a.active {
+    color: #fff;
+    font-weight: 600;
+}
+
+header .container nav a:hover {
+    color: #fff;
+}
+
+/* Profile */
+.profile-content {
+    width: fit-content;
+    margin: auto;
+}
+
+.profile-content .media {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 5vw, 40px);
+    margin-bottom: 10px;
+}
+
+.profile-content .media .image {
+    aspect-ratio: 1 / 1;
+    width: clamp(50px, 20vw, 200px);
+}
+
+.profile-content .media h2 {
+    font-weight: 600;
+}
+
+/* Forms */
+.content-section {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.form-group:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.form-group:last-child {
+    margin-top: 20px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+button, a:not(header a, .post a) {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.btn-outline-info {
+    border-color: var(--secondary-color) !important;
+    color: var(--secondary-color);
+}
+
+.btn-outline-info:hover {
+    color: #fff !important;
+    background-color: var(--secondary-color) !important;
+}
+
+small a {
+    display: inline-block;
+    color: var(--secondary-color);
+    position: relative;
+}
+
+small a:hover {
+    color: #0dcaf0;
+}
+
+small a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    background-color: #0dcaf0;
+    transition: width 0.3s;
+}
+
+small a:hover::before {
+    width: 100%;
+}
+
+/* Posts */
+.post {
+    position: relative;
+    border: 2px solid #dee2e6;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.post:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.post p {
+    margin: 0;
+    font-size: 20px;
+}
+
+.post .datetime {
+    opacity: 0.8;
+    font-size: 15px !important;
+}
+
+.post .info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.post .info .author {
+    font-weight: bold;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post .info p {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post .info img {
+    width: 50px;
+}
+
+.post h2 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.post .menu {
+    position: absolute;
+    right: 20px;
+    top: 0;
+}
+
+.post .menu .links {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    width: 105px;
+    display: none;
+    flex-direction: column;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.post .menu .links a {
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.post .menu .links a:first-child {
+    color: rgb(3, 161, 3);
+    border-bottom: 2px solid #ddd;
+}
+
+.post .menu .links a:first-child:hover {
+    color: rgb(1, 124, 1);
+}
+
+.post .menu .links a:last-child:hover {
+    color: rgb(192, 0, 0);
+}
+
+.post .menu .links a:last-child {
+    color: #f00;
+}
+
+.post .menu .links i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.post .menu > i {
+    transition: opacity 0.3s;
+    cursor: pointer;
+    color: #333;
+    opacity: 0.8;
+    font-size: 30px;
+}
+
+.post .menu > i:hover {
+    opacity: 1;
+}
+
+@media (max-width: 500px) {
+    .post .info p {
+        flex-direction: column;
+        font-size: 14px;
+    }
+}
